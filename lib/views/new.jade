@@ -1,0 +1,4 @@
+block content
+  form#formAddKitten(name="addkitten", method="post", action=action)
+    textarea(name="modelDataTextArea" rows="10" cols="50")= JSON.stringify(model)
+    button(type="submit") SUBMIT!

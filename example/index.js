@@ -4,33 +4,41 @@ var express   = require('express'),
     mongoose  = require('mongoose'),
     app       = express();
 
+// defining schema of mongoDB
 var kittySchema = mongoose.Schema({
-    name: String
+    name: String,
+    age: String,
 });
-
+// compiling schema to a model
 var Kitten = mongoose.model('Kitten', kittySchema);
 
 mongoose.connect('mongodb://localhost/madmen_example');
-
-var db = mongoose.connection;
-db.once('open',function(){
-  var kitten1 = new Kitten({name: 'Ninja'}),
-      kitten2 = new Kitten({name: 'Captain Mittens'}),
-      kitten3 = new Kitten({name: 'Charimain Meow'});
-  kitten1.save();
-  kitten2.save();
-  kitten3.save();
-});
 
 app.configure(function(){
   app.set('view engine', 'jade');
 });
 
-app.use('/admin', madmen({
-  '/kittens' : 'Kitten'
+// dev defines the root 'route', specified as '/kittens', the base url we define everything at
+// calling the 'madmen' function and passing in the object as a param
+// mounting madmen subapp @ '/admin'
+app.use('/admin', madmen( {
+  routes : { 
+    '/kittens' : 'Kitten'
+  },
+  basePath : '/admin'
 }));
 
 var server = http.createServer(app);
 server.listen(3001, function(){
   console.log('Express server listening on port 3001');
 });
+
+
+app.use(madmen({
+  routes : {
+    route :
+  }
+  basePath : 
+})
+
+  )

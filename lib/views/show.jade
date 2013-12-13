@@ -1,0 +1,9 @@
+.row
+  .col-md-12
+    h1= model
+    .row
+      a(href='#{fullPath}/#{model._id}/edit') Edit
+    .row
+      form(method="post", action=action)
+        input(type="hidden", name="_method" value="delete")
+        button(type="submit") delete

@@ -1,8 +1,14 @@
 .row
   .col-md-12
-    each resource in resources
+    // 'models' specified in controller in lib/index.js
+    div   
+      a(href='#{fullPath}/new') New  
+    each model in models
       .row
         .col-md-8
-          = resource
+          = model
         .col-md-4
-          = 'actions'
+          // #{} allows you to use variable in a string
+          // ._id is an actual mongoose property, grabs the id of the mongoose doc
+          a(href='#{fullPath}/#{model._id}') View
+    
