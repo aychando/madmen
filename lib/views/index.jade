@@ -12,7 +12,7 @@ block main
       each model in models
         .row
           .col-md-8
-            span(style='font-weight: 100; font-size:20px;')= model
+            span(style='font-weight: 100; font-size:20px;')= JSON.stringify(stripProperties(model, ["_id", "__v"]))
           .col-md-1
             // #{} allows you to use variable in a string
             // ._id is an actual mongoose property, grabs the id of the mongoose doc

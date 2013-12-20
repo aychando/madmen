@@ -3,7 +3,9 @@ extend layout
 block main
   .row
     .col-md-12
-      h1(style='font-weight: 100; font-size:36px;')= model
+      
+      pre
+        code(style='font-weight: 100; font-size:20px;')= JSON.stringify(stripProperties(model, ["_id", "__v"]), null, 2)
       .row
         form(action='#{fullPath}/#{model._id}/edit', type='submit')
           button.btn.btn-default(type='submit') Edit
@@ -12,4 +14,4 @@ block main
           input(type="hidden", name="_method" value="delete")
           button.btn.btn-default(type="submit") Delete
       .row
-        a(href='/') Home 
+        a(href='#{fullPath}') Home 

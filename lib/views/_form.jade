@@ -1,0 +1,7 @@
+form#formAddKitten(name="addkitten", method="post", action=action)
+  .row
+    .col-md-12
+      textarea(name="modelDataTextArea" rows="10" cols="50" style='font-weight: 100; font-size:20px;')= JSON.stringify(stripProperties(model, ["_id", "__v"]), null, 2)
+  .row(style = 'margin-top: 10px')
+    .col-md-12
+      button.btn.btn-default(type="submit") SUBMIT

@@ -3,6 +3,6 @@ extend layout
 block main
   h1(style='font-weight: 100; font-size:46px;') Create New
   span
-    form#formAddKitten(name="addkitten", method="post", action=action)
-      textarea(name="modelDataTextArea" rows="10" cols="50" style='font-weight: 100; font-size:20px;')= JSON.stringify(model)
-      button.btn.btn-default(type="submit") SUBMIT
+    include _form
+    .row(style="margin-top:10px; margin-left:4px;")
+      a(href='#{fullPath}' style='font-size:18px') Home 
