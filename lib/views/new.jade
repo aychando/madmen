@@ -1,4 +1,8 @@
-block content
-  form#formAddKitten(name="addkitten", method="post", action=action)
-    textarea(name="modelDataTextArea" rows="10" cols="50")= JSON.stringify(model)
-    button(type="submit") SUBMIT!
+extend layout
+
+block main
+  h1(style='font-weight: 100; font-size:46px;') Create New
+  span
+    form#formAddKitten(name="addkitten", method="post", action=action)
+      textarea(name="modelDataTextArea" rows="10" cols="50" style='font-weight: 100; font-size:20px;')= JSON.stringify(model)
+      button.btn.btn-default(type="submit") SUBMIT

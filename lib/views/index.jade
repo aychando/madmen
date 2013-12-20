@@ -1,14 +1,22 @@
-.row
-  .col-md-12
-    // 'models' specified in controller in lib/index.js
-    div   
-      a(href='#{fullPath}/new') New  
-    each model in models
-      .row
-        .col-md-8
-          = model
-        .col-md-4
-          // #{} allows you to use variable in a string
-          // ._id is an actual mongoose property, grabs the id of the mongoose doc
-          a(href='#{fullPath}/#{model._id}') View
-    
+extend layout
+
+
+block main
+  h1(style='font-weight: 100; font-size:46px;') Madmen
+  .row
+    .col-md-12
+      // 'models' specified in controller in lib/index.js
+      div   
+        span.glyphicon.glyphicon-plus(style='font-size: 20px; color:#EEE; margin-right: 5px')
+        a(href='#{fullPath}/new', style='font-size: 20px; margin-top: 100px;') CREATE NEW
+      each model in models
+        .row
+          .col-md-8
+            span(style='font-weight: 100; font-size:20px;')= model
+          .col-md-1
+            // #{} allows you to use variable in a string
+            // ._id is an actual mongoose property, grabs the id of the mongoose doc
+            span
+              a.glyphicon.glyphicon-th-list(href='#{fullPath}/#{model._id}', style='position:absolute; top:5px; right:5px; margin-right: 5px')  VIEW
+            //- span
+            //-   a(href='#{fullPath}/#{model._id}') View            

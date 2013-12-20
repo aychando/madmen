@@ -1,9 +1,15 @@
-.row
-  .col-md-12
-    h1= model
-    .row
-      a(href='#{fullPath}/#{model._id}/edit') Edit
-    .row
-      form(method="post", action=action)
-        input(type="hidden", name="_method" value="delete")
-        button(type="submit") delete
+extend layout
+
+block main
+  .row
+    .col-md-12
+      h1(style='font-weight: 100; font-size:36px;')= model
+      .row
+        form(action='#{fullPath}/#{model._id}/edit', type='submit')
+          button.btn.btn-default(type='submit') Edit
+      .row
+        form(method="post", action=action)
+          input(type="hidden", name="_method" value="delete")
+          button.btn.btn-default(type="submit") Delete
+      .row
+        a(href='/') Home 
